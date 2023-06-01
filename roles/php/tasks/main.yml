@@ -9,6 +9,19 @@
     src: my_conf.conf.j2
     dest: /etc/php/8.1/fpm/pool.d/lost.conf
 
+
+- name: Create directory
+  file: path=/opt/nginx/admin/{{ http_host }}/html state=directory
+
+# Sets Up PHP Info Page
+- name: Sets Up PHP Info Page
+  template:
+    src: "index.j2"
+    dest: "/opt/nginx/admin/{{ http_host }}/html/index.php"
+    owner: root
+    group: root
+    mode: u=rw,g=rw
+
 - name: Restart phpfpm
   service:
     name: php8.1-fpm

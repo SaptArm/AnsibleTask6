@@ -1,2 +1,4 @@
 ---
 # vars file for phpfpm
+ip_nginx: "51.250.109.121"
+http_host: "my_host"

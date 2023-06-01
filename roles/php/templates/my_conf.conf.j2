@@ -1,26 +1,19 @@
-[lost]
+[{{ http_host }}]
 
 user = www-data
 group = www-data
 
-listen = 127.0.0.1:9000
-listen.allowed_clients = 127.0.0.1
+listen = 9000
+listen.allowed_clients = 127.0.0.1,{{ ip_nginx }}
 listen.owner = www-data
 listen.group = www-data
 listen.mode = 0660
-
 pm = dynamic
 
-pm.max_children = 30
+pm.max_children = 5
+
 pm.start_servers = 2
-pm.min_spare_servers = 2
-pm.max_spare_servers = 10
 
-pm.max_requests = 1000
+pm.min_spare_servers = 1
 
-pm.status_path = /status
-
-php_admin_flag[display_errors] = off
-php_admin_value[error_log] = /var/log/fpm-php.losst.log
-php_admin_flag[log_errors] = on
-php_admin_value[memory_limit] = 32M
+pm.max_spare_servers = 3

@@ -1,3 +1,4 @@
 ---
 # vars file for nginx
 http_host: "my_host"
+ip_phpfpm: "130.193.52.53"

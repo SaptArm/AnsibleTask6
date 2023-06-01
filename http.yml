@@ -1,5 +1,15 @@
 ---
 - hosts:
-    - test
+    - http
   roles:
     - { role: http, become: true }
+
+- hosts:
+    - php
+  roles:
+    - { role: php, become: true }
+    
+- hosts:
+    - all
+  roles:
+    - { role: users, become: true }

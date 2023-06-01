@@ -1,9 +1,13 @@
-[test:vars]
+[all:vars]
 ansible_user='admin'
 ansible_become='yes'
 ansible_become_user='root'
 ansible_become_pass=123456
 ansible_become_method='su'
 
-[test]
-ubuntu1 ansible_host=51.250.99.104
+
+[http]
+ubuntu1 ansible_host=51.250.109.121
+
+[php]
+ubuntu2 ansible_host=130.193.52.53

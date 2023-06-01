@@ -1,5 +1,5 @@
 ---
 - hosts:
-    - test
+    - php
   roles:
     - { role: php, become: true }

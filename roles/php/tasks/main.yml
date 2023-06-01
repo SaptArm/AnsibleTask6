@@ -1,0 +1,15 @@
+---
+# tasks file for phpfpm
+- name : Install phpfpm
+  apt: 
+    name=php-fpm update_cache=yes state=latest
+
+- name: Put configure file
+  template:
+    src: my_conf.conf.j2
+    dest: /etc/php/8.1/fpm/pool.d/lost.conf
+
+- name: Restart phpfpm
+  service:
+    name: php8.1-fpm
+    state: restarted

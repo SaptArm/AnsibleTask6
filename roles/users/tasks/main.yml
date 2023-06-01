@@ -1,0 +1,13 @@
+---
+# tasks file for user
+- name: Add group 
+  ansible.builtin.group:
+    name: www-data
+    state: present
+
+- name: Add user
+  ansible.builtin.user:
+    name: www-data
+    password: "{{ user_password | password_hash('sha512') }}"
+    shell: /bin/bash
+    groups: www-data
